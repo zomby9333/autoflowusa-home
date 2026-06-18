@@ -12,7 +12,9 @@ body {
   line-height: 1.6;
 }
 
-/* HERO */
+/* ============================
+   HERO SECTION
+============================ */
 .hero {
   background: linear-gradient(180deg, #000 0%, #0a0a0a 40%, #1a0000 100%);
   padding: 140px 20px;
@@ -35,6 +37,159 @@ body {
 }
 
 .subtitle {
+  font-size: 1.3rem;
+  color: #e6e6e6;
+  margin-bottom: 40px;
+}
+
+/* ============================
+   EMAIL FORM
+============================ */
+.email-box {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.email-box input {
+  padding: 14px 18px;
+  width: 300px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 0, 0, 0.4);
+  background: #111;
+  color: white;
+  font-size: 1rem;
+}
+
+.email-box input::placeholder {
+  color: #888;
+}
+
+.email-box button {
+  padding: 14px 22px;
+  background: #ff1a1a;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.email-box button:hover {
+  background: #ff3333;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.7);
+}
+
+/* ============================
+   RED GLOW ANIMATION
+============================ */
+@keyframes redGlow {
+  0% { box-shadow: 0 0 6px rgba(255, 0, 0, 0.4); }
+  50% { box-shadow: 0 0 16px rgba(255, 0, 0, 1); }
+  100% { box-shadow: 0 0 6px rgba(255, 0, 0, 0.4); }
+}
+
+.glow-red {
+  animation: redGlow 2.8s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+/* ============================
+   SECTIONS
+============================ */
+.section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.section.dark {
+  background: #0a0a0a;
+}
+
+.section.light {
+  background: #111;
+}
+
+.section-title {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.section-title.red {
+  color: #ff1a1a;
+}
+
+.section-text {
+  max-width: 800px;
+  margin: auto;
+  color: #ccc;
+  font-size: 1.2rem;
+}
+
+/* ============================
+   FEATURES GRID
+============================ */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background: #111;
+  padding: 25px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  transition: 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 14px rgba(255, 0, 0, 0.5);
+}
+
+/* ============================
+   CTA SECTION
+============================ */
+.cta {
+  padding: 120px 20px;
+  text-align: center;
+  background: linear-gradient(180deg, #1a0000, #000);
+  border-top: 2px solid rgba(255, 0, 0, 0.4);
+}
+
+.cta h2 {
+  font-size: 2.6rem;
+  margin-bottom: 15px;
+}
+
+.cta p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .email-box {
+    flex-direction: column;
+  }
+
+  .email-box input,
+  .email-box button {
+    width: 100%;
+  }
+}.subtitle {
   font-size: 1.3rem;
   color: #e6e6e6;
   margin-bottom: 40px;
