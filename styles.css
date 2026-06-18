@@ -555,3 +555,53 @@ body {
   animation: redGlow 2.8s ease-in-out infinite;
   border-radius: 6px;
 }
+/* ============================
+   STICKY HEADER
+============================ */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 0, 0, 0.35);
+  z-index: 999;
+  padding: 14px 0;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ff1a1a;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+.nav-links a {
+  margin-left: 24px;
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #ff1a1a;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .nav-links {
+    display: none;
+  }
+}
