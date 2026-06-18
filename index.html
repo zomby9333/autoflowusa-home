@@ -1,63 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AUTOFLOW USA</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AUTOFLOWUSA — Next‑Gen Automotive Automation</title>
+
+    <!-- SEO -->
+    <meta name="description" content="AUTOFLOWUSA is the next-generation automotive automation system designed for reliability, simplicity, and real-world performance. Join the early-access list for launch updates." />
+    <meta name="keywords" content="AUTOFLOW, AUTOFLOWUSA, automotive automation, hardware, automotive tech, prelaunch, automotive device" />
+    <meta name="author" content="AUTOFLOWUSA" />
+
+    <!-- Styles -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0d0d0d;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 40px 20px;
+            text-align: center;
+            background: #111;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            opacity: 0.85;
+        }
+
+        .cta-box {
+            margin-top: 30px;
+        }
+
+        input[type="email"] {
+            padding: 14px;
+            width: 280px;
+            max-width: 80%;
+            border: none;
+            border-radius: 6px;
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 14px 22px;
+            background: #ffcc00;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #e6b800;
+        }
+
+        .features {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .features h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .feature {
+            background: #1a1a1a;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .feature h4 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>AUTOFLOW</h1>
-      <p>Precision‑Engineered Hardware for Demanding Environments</p>
-      <a href="#signup" class="cta-btn">Get Updates</a>
+<header>
+    <h1>AUTOFLOWUSA</h1>
+    <p>Next‑Generation Automotive Automation</p>
+</header>
+
+<section class="hero">
+    <h2>Smarter. Faster. Built for Real‑World Performance.</h2>
+    <p>
+        AUTOFLOW is a next‑gen automotive automation system engineered for reliability, simplicity, and power. 
+        Designed for drivers, builders, and professionals who demand more from their equipment.
+    </p>
+
+    <div class="cta-box">
+        <form action="https://formspree.io/f/yourformid" method="POST">
+            <input type="email" name="email" placeholder="Enter your email" required />
+            <button type="submit">Join Early Access</button>
+        </form>
     </div>
-  </section>
+</section>
 
-  <!-- FEATURES GRID -->
-  <section class="features">
-    <div class="feature">
-      <h3>Engineered for Reliability</h3>
-      <p>Industrial‑grade components built to perform under extreme conditions.</p>
+<section class="features">
+    <h3>Why AUTOFLOW?</h3>
+
+    <div class="feature-grid">
+        <div class="feature">
+            <h4>Engineered for Reliability</h4>
+            <p>Built with high‑grade components and tested for real‑world durability.</p>
+        </div>
+
+        <div class="feature">
+            <h4>Simple, Fast Setup</h4>
+            <p>No complicated installs. No unnecessary steps. Just plug in and go.</p>
+        </div>
+
+        <div class="feature">
+            <h4>Optimized Performance</h4>
+            <p>Designed to deliver consistent, powerful results every time.</p>
+        </div>
+
+        <div class="feature">
+            <h4>Future‑Ready Hardware</h4>
+            <p>Modular, upgradable, and built to evolve with your needs.</p>
+        </div>
     </div>
+</section>
 
-    <div class="feature">
-      <h3>Simple, Fast Setup</h3>
-      <p>Optimized for rapid deployment with minimal configuration required.</p>
-    </div>
-
-    <div class="feature">
-      <h3>Optimized Performance</h3>
-      <p>Tuned for maximum throughput, stability, and long‑term durability.</p>
-    </div>
-
-    <div class="feature">
-      <h3>Future‑Ready Hardware</h3>
-      <p>Modular design ensures compatibility with next‑generation systems.</p>
-    </div>
-  </section>
-
-  <!-- EMAIL SIGNUP -->
-  <section id="signup" class="email-signup">
-    <div class="email-container">
-      <h2>Stay Updated</h2>
-      <p>Join the AUTOFLOW early‑access list for launch details and product announcements.</p>
-
-      <form action="https://formspree.io/f/your-form-id" method="POST" class="email-form">
-        <input type="email" name="email" placeholder="Enter your email" required />
-        <button type="submit">Notify Me</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>© 2026 AUTOFLOW USA — All Rights Reserved</p>
-  </footer>
+<footer>
+    © 2026 AUTOFLOWUSA — All Rights Reserved.
+</footer>
 
 </body>
 </html>
