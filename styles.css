@@ -196,3 +196,82 @@ p {
   animation: redGlow 2.5s ease-in-out infinite;
   border-radius: 6px;
 }
+/* ============================
+   AUTOFLOW Black + Red Hero
+   ============================ */
+
+.hero {
+  background: linear-gradient(180deg, #000000 0%, #0a0a0a 40%, #0d0000 100%);
+  padding: 120px 20px;
+  text-align: center;
+  color: white;
+  border-bottom: 2px solid rgba(255, 0, 0, 0.4);
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ff1a1a;
+  text-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto 35px auto;
+  color: #e6e6e6;
+  line-height: 1.6;
+}
+
+/* Email box */
+.email-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.email-box input {
+  padding: 14px 18px;
+  width: 280px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 0, 0, 0.4);
+  background: #111;
+  color: white;
+  font-size: 1rem;
+}
+
+.email-box input::placeholder {
+  color: #888;
+}
+
+.email-box button {
+  padding: 14px 22px;
+  background: #ff1a1a;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Hover effect */
+.email-box button:hover {
+  background: #ff3333;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.7);
+}
+
+/* Subtle red glow animation */
+@keyframes redGlow {
+  0% { box-shadow: 0 0 6px rgba(255, 0, 0, 0.4); }
+  50% { box-shadow: 0 0 14px rgba(255, 0, 0, 0.9); }
+  100% { box-shadow: 0 0 6px rgba(255, 0, 0, 0.4); }
+}
+
+.glow-red {
+  animation: redGlow 2.8s ease-in-out infinite;
+  border-radius: 6px;
+}
