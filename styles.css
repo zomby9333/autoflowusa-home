@@ -1,23 +1,31 @@
-/* GLOBAL */
-body {
+/* ===========================
+   GLOBAL RESET + BASE
+=========================== */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Arial', sans-serif;
   background: #000;
   color: #fff;
+  line-height: 1.6;
 }
 
 h1, h2, h3 {
-  margin: 0;
   font-weight: 700;
   letter-spacing: 1px;
 }
 
 p {
-  color: #ccc;
-  line-height: 1.6;
+  color: #bbb;
 }
 
-/* HERO */
+/* ===========================
+   HERO SECTION
+=========================== */
 .hero {
   height: 90vh;
   background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
@@ -31,34 +39,36 @@ p {
 .hero-inner h1 {
   font-size: 80px;
   color: #e60000;
-  text-shadow: 0 0 20px #ff0000;
+  text-shadow: 0 0 25px #ff0000;
 }
 
 .hero-inner p {
   font-size: 20px;
-  margin-top: 10px;
-  color: #bbb;
+  margin-top: 12px;
+  color: #ccc;
 }
 
 .cta-btn {
   display: inline-block;
-  margin-top: 30px;
-  padding: 14px 28px;
+  margin-top: 35px;
+  padding: 14px 32px;
   background: #e60000;
   color: #fff;
   text-decoration: none;
   font-size: 18px;
   border-radius: 4px;
-  transition: 0.2s ease;
   border: 1px solid #ff1a1a;
+  transition: 0.2s ease;
 }
 
 .cta-btn:hover {
   background: #ff1a1a;
-  box-shadow: 0 0 12px #ff1a1a;
+  box-shadow: 0 0 14px #ff1a1a;
 }
 
-/* FEATURES */
+/* ===========================
+   FEATURES GRID
+=========================== */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -74,22 +84,24 @@ p {
   padding: 30px;
   border: 1px solid #222;
   border-radius: 6px;
-  transition: 0.2s ease;
+  transition: 0.25s ease;
 }
 
 .feature:hover {
   border-color: #e60000;
-  box-shadow: 0 0 12px #e60000;
+  box-shadow: 0 0 14px #e60000;
 }
 
 .feature h3 {
   color: #e60000;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-/* EMAIL SIGNUP */
+/* ===========================
+   EMAIL SIGNUP
+=========================== */
 .email-signup {
-  padding: 80px 20px;
+  padding: 90px 20px;
   text-align: center;
   background: #000;
   border-top: 2px solid #111;
@@ -101,9 +113,9 @@ p {
 }
 
 .email-signup h2 {
-  font-size: 36px;
+  font-size: 38px;
   color: #e60000;
-  text-shadow: 0 0 12px #ff0000;
+  text-shadow: 0 0 14px #ff0000;
 }
 
 .email-signup p {
@@ -113,14 +125,14 @@ p {
 
 .email-form {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
 }
 
 .email-form input {
   padding: 14px 16px;
   width: 70%;
-  max-width: 350px;
+  max-width: 360px;
   border: 1px solid #333;
   background: #111;
   color: #fff;
@@ -143,22 +155,26 @@ p {
 
 .email-form button:hover {
   background: #ff1a1a;
-  box-shadow: 0 0 12px #ff1a1a;
+  box-shadow: 0 0 14px #ff1a1a;
 }
 
-/* FOOTER */
+/* ===========================
+   FOOTER
+=========================== */
 .footer {
-  padding: 20px;
+  padding: 22px;
   text-align: center;
   background: #0a0a0a;
   border-top: 2px solid #111;
   color: #666;
 }
 
-/* MOBILE */
+/* ===========================
+   MOBILE RESPONSIVE
+=========================== */
 @media (max-width: 600px) {
   .hero-inner h1 {
-    font-size: 52px;
+    font-size: 54px;
   }
 
   .email-form {
