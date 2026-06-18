@@ -1,40 +1,750 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AUTOFLOWUSA — Next‑Gen Automotive Automation</title>
+  <meta charset="UTF-8" />
+  <title>AUTOFLOW – Wireless Android Auto, No USB Required</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AUTOFLOW turns any wired Android Auto car into wireless – without using your USB port." />
+  <style>
+    :root {
+      --bg: #05060a;
+      --card: #0c0f18;
+      --accent: #00ffc3;
+      --accent-soft: rgba(0,255,195,0.12);
+      --text: #f5f7ff;
+      --muted: #9aa0b8;
+      --danger: #ff3366;
+      --border: #1b2135;
+      --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: radial-gradient(circle at top, #15192b 0, #05060a 55%);
+      color: var(--text);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    <!-- SEO -->
-    <meta name="description" content="AUTOFLOWUSA is the next-generation automotive automation system designed for reliability, simplicity, and real-world performance. Join the early-access list for launch updates." />
-    <meta name="keywords" content="AUTOFLOW, AUTOFLOWUSA, automotive automation, hardware, automotive tech, prelaunch, automotive device" />
-    <meta name="author" content="AUTOFLOWUSA" />
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      padding: 18px 7vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: linear-gradient(to bottom, rgba(5,6,10,0.9), rgba(5,6,10,0.6));
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+    .logo-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #00ffc3 0, #007bff 40%, #05060a 100%);
+      box-shadow: 0 0 0 1px rgba(0,255,195,0.4), 0 0 18px rgba(0,255,195,0.6);
+    }
+    nav {
+      display: flex;
+      gap: 22px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    nav a {
+      color: var(--muted);
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+    }
+    nav a:hover {
+      color: var(--text);
+      border-bottom-color: var(--accent);
+    }
+    .cta-header {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .btn {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border: 1px solid var(--border);
+      background: rgba(12,15,24,0.9);
+      color: var(--text);
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #00ffc3, #007bff);
+      border-color: transparent;
+      color: #05060a;
+      font-weight: 600;
+      box-shadow: 0 0 18px rgba(0,255,195,0.4);
+    }
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      box-shadow: 0 0 24px rgba(0,255,195,0.6);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+    }
+    .btn-ghost:hover {
+      color: var(--text);
+      border-color: var(--accent-soft);
+    }
 
-    <!-- Styles -->
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0d0d0d;
-            color: #ffffff;
-            line-height: 1.6;
-        }
+    main {
+      flex: 1;
+      padding: 40px 7vw 70px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        header {
-            padding: 40px 20px;
-            text-align: center;
-            background: #111;
-        }
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+      padding: 30px 0 40px;
+    }
+    .hero-copy h1 {
+      font-size: clamp(32px, 4vw, 44px);
+      line-height: 1.05;
+      margin: 0 0 16px;
+    }
+    .hero-copy h1 span {
+      color: var(--accent);
+    }
+    .hero-tagline {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 22px;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .badge {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(12,15,24,0.9);
+      color: var(--muted);
+    }
+    .badge-accent {
+      border-color: var(--accent-soft);
+      background: radial-gradient(circle at 0 0, rgba(0,255,195,0.18), rgba(12,15,24,0.9));
+      color: var(--accent);
+    }
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .hero-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
 
-        header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
+    .hero-visual {
+      position: relative;
+      padding: 18px;
+    }
+    .device-card {
+      border-radius: 22px;
+      background: radial-gradient(circle at 0 0, rgba(0,255,195,0.18), #05060a 55%);
+      border: 1px solid var(--border);
+      box-shadow: 0 26px 60px rgba(0,0,0,0.7);
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .device-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .device-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+    .device-status {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(0,255,195,0.12);
+      color: var(--accent);
+      border: 1px solid rgba(0,255,195,0.4);
+    }
+    .device-body {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .dongle {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      border-radius: 18px;
+      background: linear-gradient(145deg, #05060a, #15192b);
+      border: 1px solid rgba(255,255,255,0.04);
+      position: relative;
+      overflow: hidden;
+    }
+    .dongle-inner {
+      position: absolute;
+      inset: 14px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 20% 0, #00ffc3 0, #007bff 40%, #05060a 100%);
+      box-shadow: 0 0 0 1px rgba(0,255,195,0.4), 0 0 26px rgba(0,255,195,0.7);
+    }
+    .dongle-logo {
+      position: absolute;
+      bottom: 14px;
+      left: 18px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #05060a;
+      font-weight: 700;
+    }
+    .dongle-port {
+      position: absolute;
+      right: 18px;
+      bottom: 14px;
+      width: 46px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(5,6,10,0.9);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.6);
+    }
+    .device-specs {
+      font-size: 12px;
+      color: var(--muted);
+      display: grid;
+      gap: 6px;
+    }
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .spec-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 10px;
+    }
+    .spec-value {
+      font-size: 12px;
+      color: var(--text);
+    }
+    .device-footer {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .signal {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .signal-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(0,255,195,0.2);
+    }
+    .signal-dot.active {
+      background: #00ffc3;
+      box-shadow: 0 0 8px rgba(0,255,195,0.8);
+    }
 
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.8;
+    /* Sections */
+    section {
+      margin-top: 40px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    section h2 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    section p {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .card {
+      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 16px 16px 14px;
+    }
+    .card h3 {
+      font-size: 14px;
+      margin: 0 0 6px;
+    }
+    .card p {
+      font-size: 13px;
+      margin: 0;
+    }
+    .pill {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.02);
+      color: var(--muted);
+    }
+    .pill-accent {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .feature-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .feature-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .feature-item strong {
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .compat {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 18px;
+      margin-top: 18px;
+      align-items: flex-start;
+    }
+    .compat-list {
+      font-size: 13px;
+      color: var(--muted);
+      display: grid;
+      gap: 6px;
+    }
+    .compat-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .compat-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .compat-tag.hot {
+      border-color: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .compat-card {
+      border-radius: 16px;
+      background: var(--card);
+      border: 1px dashed var(--border);
+      padding: 14px 14px 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .compat-card strong {
+      color: var(--text);
+    }
+
+    .cta-section {
+      margin-top: 40px;
+      padding: 24px 18px;
+      border-radius: 18px;
+      background: radial-gradient(circle at 0 0, rgba(0,255,195,0.18), #05060a 60%);
+      border: 1px solid var(--accent-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cta-section h2 {
+      margin: 0 0 8px;
+    }
+    .cta-section p {
+      margin: 0;
+      max-width: 520px;
+    }
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .price-line {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .price-line strong {
+      color: var(--text);
+    }
+
+    footer {
+      padding: 20px 7vw 26px;
+      font-size: 11px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+    }
+    footer span {
+      opacity: 0.8;
+    }
+    footer a {
+      font-size: 11px;
+    }
+
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-visual {
+        order: -1;
+      }
+      header {
+        padding: 14px 5vw;
+      }
+      main {
+        padding: 26px 5vw 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <span>AUTOFLOW</span>
+      </div>
+      <nav>
+        <a href="#how-it-works">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#compatibility">Compatibility</a>
+        <a href="#buy">Buy</a>
+      </nav>
+      <div class="cta-header">
+        <button class="btn btn-ghost">Dealer & Fleet</button>
+        <button class="btn btn-primary">Pre‑Order</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-copy">
+          <h1>
+            Wireless Android Auto.<br />
+            <span>No USB port required.</span>
+          </h1>
+          <p class="hero-tagline">
+            AUTOFLOW is a self‑powered wireless Android Auto adapter that plugs into your 12V socket—
+            not your USB port. Turn any wired‑only Android Auto car into a clean, cable‑free cockpit in seconds.
+          </p>
+
+          <div class="hero-badges">
+            <div class="badge badge-accent">Patent‑pending USB Gadget Emulation Engine</div>
+            <div class="badge">Dual Wi‑Fi Direct bridge</div>
+            <div class="badge">12V self‑powered</div>
+          </div>
+
+          <div class="hero-cta">
+            <button class="btn btn-primary">Reserve your AUTOFLOW</button>
+            <button class="btn btn-ghost">Watch demo</button>
+          </div>
+          <div class="hero-note">
+            Works with most 2016–2023 vehicles that support wired Android Auto. No wiring. No apps. Just plug in and drive.
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="device-card">
+            <div class="device-top">
+              <div class="device-title">Live in‑car preview</div>
+              <div class="device-status">Wireless link: ACTIVE</div>
+            </div>
+            <div class="device-body">
+              <div class="dongle">
+                <div class="dongle-inner"></div>
+                <div class="dongle-logo">AUTOFLOW</div>
+                <div class="dongle-port"></div>
+              </div>
+              <div class="device-specs">
+                <div class="spec-row">
+                  <span class="spec-label">Power</span>
+                  <span class="spec-value">12V socket, self‑powered</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-label">Phone link</span>
+                  <span class="spec-value">Wi‑Fi Direct, low‑latency</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-label">Head unit</span>
+                  <span class="spec-value">Emulated USB Android Auto</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-label">Setup</span>
+                  <span class="spec-value">Plug in, pair once, drive</span>
+                </div>
+              </div>
+            </div>
+            <div class="device-footer">
+              <div class="signal">
+                <div class="signal-dot active"></div>
+                <div class="signal-dot active"></div>
+                <div class="signal-dot"></div>
+                <span>Stable wireless session</span>
+              </div>
+              <span>USB port: untouched</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section id="how-it-works">
+        <h2>How AUTOFLOW works</h2>
+        <p>
+          AUTOFLOW sits between your Android phone and your car’s head unit. It draws power from the 12V socket,
+          creates a dedicated Wi‑Fi Direct link to your phone, and presents itself to the car as a wired Android Auto
+          device—without ever touching the USB port.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>1. Plug into 12V</h3>
+            <p>
+              Insert AUTOFLOW into your vehicle’s 12V socket. It powers on automatically with the ignition—no cables,
+              no extra adapters.
+            </p>
+            <span class="pill">Zero install</span>
+          </div>
+          <div class="card">
+            <h3>2. Pair your phone once</h3>
+            <p>
+              Connect your Android phone to AUTOFLOW via Wi‑Fi Direct. The secure link is remembered, so future drives
+              connect automatically.
+            </p>
+            <span class="pill">Instant reconnection</span>
+          </div>
+          <div class="card">
+            <h3>3. Car sees “wired” Android Auto</h3>
+            <p>
+              AUTOFLOW’s USB Gadget Emulation Engine presents a virtual wired Android Auto device to your head unit,
+              unlocking full Android Auto—wirelessly.
+            </p>
+            <span class="pill pill-accent">USB port stays free</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section id="features">
+        <h2>Built for real drivers, real commutes</h2>
+        <p>
+          Whether you’re a daily commuter, rideshare driver, or fleet operator, AUTOFLOW removes the friction of
+          plugging in your phone every time you drive—while keeping your USB port available for charging, storage,
+          or repairs.
+        </p>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-icon">⚡</div>
+            <div>
+              <strong>No USB dependency</strong><br />
+              AUTOFLOW doesn’t occupy or rely on your car’s USB port. Perfect for vehicles with damaged ports, shared
+              ports, or inconvenient placement.
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📶</div>
+            <div>
+              <strong>Low‑latency Wi‑Fi Direct</strong><br />
+              Dual‑band Wi‑Fi Direct keeps maps, calls, and music responsive—without the lag and dropouts of
+              generic wireless adapters.
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🛠</div>
+            <div>
+              <strong>Plug‑and‑drive simplicity</strong><br />
+              No apps, no hidden menus. If your car supports wired Android Auto, AUTOFLOW can make it wireless in
+              under a minute.
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🚕</div>
+            <div>
+              <strong>Optimized for rideshare & fleets</strong><br />
+              Reduce wear on USB ports, speed up driver onboarding, and keep vehicles cleaner and more professional
+              for passengers.
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔒</div>
+            <div>
+              <strong>Secure, dedicated link</strong><br />
+              Your phone connects directly to AUTOFLOW, not to random in‑car Wi‑Fi networks—keeping your data and
+              sessions under your control.
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🚗</div>
+            <div>
+              <strong>Designed for 2016–2023 vehicles</strong><br />
+              Targets the huge installed base of wired‑only Android Auto head units across major brands like Toyota,
+              Honda, Ford, GM, VW, Hyundai, Kia, and more.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPATIBILITY -->
+      <section id="compatibility">
+        <h2>Compatibility</h2>
+        <p>
+          AUTOFLOW is designed to work with most vehicles that already support wired Android Auto. If your car shows
+          Android Auto when you plug your phone into USB today, AUTOFLOW can likely make that experience wireless.
+        </p>
+
+        <div class="compat">
+          <div>
+            <div class="compat-list">
+              <div>• Vehicles with factory wired Android Auto (2016–2023)</div>
+              <div>• Aftermarket head units that support wired Android Auto</div>
+              <div>• Cars, trucks, vans, and RVs with a 12V socket</div>
+              <div>• Android phones running Android 10 or newer</div>
+            </div>
+            <div class="compat-tag-row">
+              <span class="compat-tag hot">Commuters</span>
+              <span class="compat-tag">Rideshare drivers</span>
+              <span class="compat-tag">Fleet vehicles</span>
+              <span class="compat-tag">Used‑car owners</span>
+            </div>
+          </div>
+          <div class="compat-card">
+            <strong>Quick self‑check:</strong><br />
+            1. Your car already supports wired Android Auto.<br />
+            2. You have a working 12V socket.<br />
+            3. You use an Android phone.<br /><br />
+            If you can say “yes” to all three, AUTOFLOW is built for you.
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA / BUY -->
+      <section id="buy" class="cta-section">
+        <div>
+          <h2>Reserve your AUTOFLOW</h2>
+          <p>
+            Be among the first to upgrade your car to wireless Android Auto—without touching the USB port. Perfect for
+            daily drivers, rideshare pros, and fleets that want cleaner, faster, more modern in‑car tech.
+          </p>
+          <div class="price-line">
+            Launch pricing: <strong>$XXX preorder</strong> · Limited early‑access units · Fleet & dealer programs available.
+          </div>
+        </div>
+        <div class="cta-buttons">
+          <button class="btn btn-primary">Pre‑Order AUTOFLOW</button>
+          <button class="btn btn-ghost">Talk to sales</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© AUTOFLOW. Wireless Android Auto, no USB required.</span>
+      <span>
+        Product details subject to change. Android Auto is a trademark of Google LLC.
+        <a href="#buy">Pre‑order</a>
+      </span>
+    </footer>
+  </div>
+</body>
+              </html>        refining the system for real‑world use. Join the early access list to stay updated.
+    </p>
+</section>
+
+<footer>
+    © 2026 AUTOFLOWUSA — AUTOFLOW Hardware System. All Rights Reserved.
+</footer>
+
+</body>
+</html>            opacity: 0.8;
         }
 
         .hero {
