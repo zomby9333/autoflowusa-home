@@ -306,3 +306,41 @@ body {
   height: auto;
   display: block;
 }
+.autoflow-header {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  position: relative;
+}
+
+.autoflow-header img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* Subtle green glow behind the image */
+.autoflow-header::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 70%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 100, 0.18) 0%,
+    rgba(0, 255, 100, 0.08) 40%,
+    rgba(0, 255, 100, 0) 80%
+  );
+  filter: blur(40px);
+  z-index: 1;
+  pointer-events: none;
+}
