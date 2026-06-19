@@ -276,3 +276,17 @@ body {
 .nav-links {
   margin-left: auto;
 }
+.autoflow-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.autoflow-header img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
