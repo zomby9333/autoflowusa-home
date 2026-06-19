@@ -290,3 +290,19 @@ body {
   height: auto;
   display: block;
 }
+
+.autoflow-header {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.autoflow-header img {
+  width: 100%;
+  max-width: 900px; /* adjust if you want it bigger or smaller */
+  height: auto;
+  display: block;
+}
