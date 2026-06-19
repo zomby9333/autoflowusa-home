@@ -5,6 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AUTOFLOW — 12V Wireless Android Auto</title>
   <link rel="stylesheet" href="styles.css" />
+  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AUTOFLOW — 12V Wireless Android Auto</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- 🔥 ADD THIS STYLE BLOCK RIGHT HERE 🔥 -->
+  <style>
+    /* Chrome reflection sweep */
+    .sticky-header .logo img {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sticky-header .logo img::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        75deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.4) 50%,
+        rgba(255,255,255,0) 100%
+      );
+      transform: skewX(-20deg);
+      animation: chromeSweep 3s linear infinite;
+    }
+
+    @keyframes chromeSweep {
+      0% { left: -150%; }
+      100% { left: 200%; }
+    }
+
+    /* Hover pulse effect */
+    .sticky-header:hover .logo img {
+      filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.75));
+      transition: filter 0.25s ease-out;
+    }
+
+    .sticky-header:active .logo img {
+      filter: drop-shadow(0 0 22px rgba(255, 0, 0, 1));
+    }
+  </style>
+  <!-- 🔥 END INSERTED BLOCK -->
+  </head>
 </head>
 
 <body>
