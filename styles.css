@@ -243,3 +243,9 @@ body {
     width: 100%;
   }
 }
+.logo img {
+  height: 42px;      /* adjust if needed */
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.6)); /* matches your red glow aesthetic */
+}
