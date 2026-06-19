@@ -264,3 +264,15 @@ body {
   width: 280px;     /* Increase this number to make it bigger */
   height: auto;
 }
+/* Center logo inside header */
+.sticky-header .header-inner {
+  display: flex;
+  justify-content: center;   /* centers everything */
+  align-items: center;
+  gap: 40px;                 /* spacing between logo + nav */
+}
+
+/* Make nav sit to the right of the centered logo */
+.nav-links {
+  margin-left: auto;
+}
